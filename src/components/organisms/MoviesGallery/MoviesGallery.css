@@ -1,0 +1,17 @@
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 50px;
+}
+
+
+@media (max-width: 600px) {
+    .button-bar {
+        flex-wrap: wrap;
+    }
+
+    .button {
+        flex-basis: calc(50% - 5px);
+        margin-bottom: 10px;
+    }
+}

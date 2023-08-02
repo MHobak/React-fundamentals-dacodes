@@ -1,0 +1,10 @@
+.header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #5141EA;
+}
+
+.header span{
+    margin-left: auto;
+}

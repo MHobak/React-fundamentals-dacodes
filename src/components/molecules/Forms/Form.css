@@ -1,0 +1,18 @@
+.form {
+    margin: 50px 0;
+    max-width: 50%;
+}
+
+.submit-button {
+    padding-top: 30px;
+}
+
+.form  .input {
+    max-width: 60%;
+}
+
+@media (max-width: 600px) {
+    .form {
+        max-width: 100%;
+    }
+}

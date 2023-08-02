@@ -1,0 +1,6 @@
+.label {
+    display: block;
+    font-size: 16px;
+    color: #ffffff; /* White text color for the label */
+    margin-bottom: 10px;
+}

@@ -1,0 +1,15 @@
+.button-bar {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+    .button-bar {
+        flex-wrap: wrap;
+    }
+
+    .button {
+        flex-basis: calc(50% - 5px);
+        margin-bottom: 10px;
+    }
+}

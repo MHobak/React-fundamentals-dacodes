@@ -1,0 +1,15 @@
+.button {
+    padding: 10px 40px;
+    border: none;
+    border-radius: 20px;
+    color: #ffffff;
+    background-image: linear-gradient(to left, #604ce1, #ffffff);
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-size: large;
+  }
+  
+  .button:hover {
+    background-color: #563FF0;
+    background-image: none;
+  }

@@ -1,0 +1,11 @@
+.checkbox {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    background-color: #3f51b5; /* Blue background color for the checkbox */
+    border: none;
+}
+  
+.checkbox:checked {
+    background-color: #1e88e5; /* Blue background color for checked state */
+}
