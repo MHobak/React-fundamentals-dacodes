@@ -18,5 +18,5 @@ const AuthTemplate = ({title, subtitle, children}:{title:string, subtitle:string
     )
 }
 
-AuthTemplate.displayName = ""
+AuthTemplate.displayName = "Auth template"
 export default AuthTemplate

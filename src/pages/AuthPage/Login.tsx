@@ -5,7 +5,7 @@ const Login = () => {
     return (
         <AuthTemplate
             title="Login"
-            subtitle="xd"
+            subtitle="¡Bienvenido!"
         >
             <LoginFormModule/>
         </AuthTemplate>

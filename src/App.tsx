@@ -1,9 +1,10 @@
+import RouterApp from './routes/RouterApp'
 import './styles/app.css'
-import Login from './pages/AuthPage/Login'
+
 
 function App() {
   return (
-    <Login></Login>
+    <RouterApp/>
   )
 }
 
