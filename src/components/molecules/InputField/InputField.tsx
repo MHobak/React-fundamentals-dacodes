@@ -1,16 +1,14 @@
 import Label from '../../atoms/Labels/Label/Label';
-import TextInput from '../../atoms/Inputs/TextInput/TextInput';
+import {TextInput, TextInputI} from '../../atoms/Inputs/TextInput/TextInput';
+import InputErrorMessage from '../../atoms/Text/InputErrorMessage/InputErrorMessage';
 import './InputField.css'
 
-interface InputFieldI {
+interface InputFieldI extends TextInputI {
     label: React.ReactNode;
-    name: string;
-    placeholder: string;
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    value: string;
+    error?: string;
   }
 
-const InputField = ({name, label, placeholder, onChange, value}: InputFieldI) => {
+const InputField = ({name, label, error, placeholder, onChange, onBlur, value}: InputFieldI) => {
     return (
         <div className='input-field'>
             <Label>{label}</Label>
@@ -18,7 +16,9 @@ const InputField = ({name, label, placeholder, onChange, value}: InputFieldI) =>
             name={name} 
             placeholder={placeholder}
             value={value}
-            onChange={onChange}/>
+            onChange={onChange}
+            onBlur={onBlur}/>
+            {error ? <InputErrorMessage>{error}</InputErrorMessage> : null}
         </div>
     )
 }

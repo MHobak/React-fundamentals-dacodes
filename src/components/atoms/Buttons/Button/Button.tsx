@@ -1,8 +1,14 @@
 import './Button.css'
 
-const Button = ({children} : {children: React.ReactNode}) => {
+interface ButtonI {
+    type?: "button" | "submit" | "reset"
+    disabled?: boolean
+    children: React.ReactNode
+}
+
+const Button = ({children, type = "button", disabled = false} : ButtonI) => {
     return (
-        <button className='button'>{children}</button>
+        <button disabled={disabled} type={type} className='button'>{children}</button>
     )
 }
 

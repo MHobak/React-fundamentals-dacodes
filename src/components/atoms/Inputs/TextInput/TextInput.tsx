@@ -1,22 +1,23 @@
 import '../Input.css'
 
 
-interface TextInputI {
+export interface TextInputI {
     name: string;
     placeholder: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onBlur?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     value: string;
   }
 
-const TextInput = ({name, placeholder, onChange, value}: TextInputI) => {
+export const TextInput = ({name, placeholder, onChange, onBlur, value}: TextInputI) => {
     return (
         <input className="input" type="text" 
         name={name} 
         placeholder={placeholder}
         value={value}
-        onChange={onChange}/>
+        onChange={onChange}
+        onBlur={onBlur}/>
     )
 }
 
 TextInput.displayName = "Text input"
-export default TextInput;

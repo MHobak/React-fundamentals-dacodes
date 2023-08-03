@@ -7,9 +7,17 @@
     transition: background-color 0.3s ease;
     font-weight: bold;
     font-size: large;
+    cursor: pointer;
   }
   
   .button:hover {
     background-color: #563FF0;
     background-image: none;
+  }
+
+  .button:disabled {
+    background-color: #563FF0;
+    background-image: none;
+    opacity: 0.8;
+    cursor: none;
   }
