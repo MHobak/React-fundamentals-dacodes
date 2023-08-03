@@ -7,11 +7,11 @@ interface TermsCheckboxI extends CheckboxI {
 
 const TermsCheckbox = ({name, onChange, onBlur, checked, error}: TermsCheckboxI) => {
     return (
-        <div>
+        <label>
             <CheckBox onChange={onChange} onBlur={onBlur} checked={checked} name={name}/>
             <span><i>Aceptar terminos y condiciones</i></span>
             {error ? <InputErrorMessage>{error}</InputErrorMessage> : null}
-        </div>
+        </label>
     )
 }
 

@@ -41,39 +41,32 @@ const LoginFormModule = () => {
             terms: false
         },
         validate,
-        onSubmit: values => console.log(values)
+        onSubmit: values => console.log(formik.getFieldProps('terms'))
     })
 
     return (
         <form className='form' onSubmit={formik.handleSubmit}>
             <InputField
-                name='email'
                 label=' Correo electronico de DaCodes'
-                placeholder=''
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.email}
+                placeholder='Correo'
                 error={!formik.touched.email ? undefined : formik.errors.email}
+                {...formik.getFieldProps('email')}
             />
             <InputField
-                name='password'
                 label='Contraseña'
-                placeholder=''
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.password}
+                placeholder='Contraseña'
                 error={!formik.touched.password ? undefined : formik.errors.password}
+                {...formik.getFieldProps('password')}
+                
             />
             <TermsCheckbox 
-                name="terms"
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
                 checked={formik.values.terms}
                 error={!formik.touched.terms ? undefined : formik.errors.terms}
+                {...formik.getFieldProps('terms')}
             />
 
             <div className='submit-button'>
-                <Button type="submit">Crear cuenta</Button>
+                <Button disabled={!formik.isValid} type="submit">Crear cuenta</Button>
             </div>
         </form>
     )
