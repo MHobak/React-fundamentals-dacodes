@@ -1,13 +1,23 @@
-import MovieCard from "../../molecules/MovieCard/MovieCard"
+import { MovieCard, MovieI} from "../../molecules/MovieCard/MovieCard"
 import './MoviesGallery.css'
 
-const MoviesGallery = () => {
-    const num = 15;
-    const elements = [];
 
-    for (let index = 0; index < num; index++) {
-        elements.push(<MovieCard key={index} />);
-    }
+
+const MoviesGallery = ({list}:{list:MovieI[]}) => {
+    const elements : JSX.Element[] = [];
+    let index = 0;
+    list.forEach(movie => {
+        elements.push(
+            <MovieCard 
+                title={movie.title} 
+                overview={movie.overview} 
+                poster_path={movie.poster_path}
+                vote_average={movie.vote_average}
+                release_date={movie.release_date}
+                key={index} 
+            />); 
+        index ++;
+    });
 
     return (
         <div className="gallery">

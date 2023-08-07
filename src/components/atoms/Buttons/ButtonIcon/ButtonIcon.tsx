@@ -1,18 +1,27 @@
 import './IconButton.css'
 
-interface ButtonColor {
+
+interface ButtonIconi {
+    disabled?: boolean
+    onClick: () => void
+    children: string
+    bgColor?: string
+    textColor?: string
+}
+
+interface ButtonColorI {
     color: string
     backgroundColor: string
 }
 
-const IconButton = ({children, bgColor = "black", textColor = "white"  } : {children: string, bgColor: string, textColor: string}) => {
-    const buttonColor :ButtonColor = {
+const IconButton = ({disabled, onClick, children, bgColor = "black", textColor = "white"  } : ButtonIconi) => {
+    const buttonColor :ButtonColorI = {
         color: textColor,
         backgroundColor: bgColor
     }
 
     return (
-        <button style={buttonColor} className='icon-button'>{children}</button>
+        <button onClick={onClick} style={buttonColor} className='icon-button'>{children}</button>
     )
 }
 

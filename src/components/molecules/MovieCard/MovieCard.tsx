@@ -2,28 +2,34 @@ import Image from "../../atoms/Images/Image/Image"
 import Rating from "../Rating/Rating"
 import './MovieCard.css'
 
+export interface MovieI {
+    title: string
+    overview: string
+    poster_path: string
+    vote_average: number
+    release_date: string
+}
 
-const MovieCard = () => {
+export const MovieCard = ({title, overview, poster_path, vote_average}:MovieI) => {
     return (
         <>
             <div className="card">
                 <div className="card-body overlay">
                     <div className="card-info">
-                        <b>Some random title</b>
-                        <p>some random description</p>
+                        <b>{title}</b>
+                        <p>{vote_average}</p>
                         <br></br>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus recusandae odio id eius voluptas culpa accusantium praesentium! Vero iure fugiat ullam accusamus alias dolorum illo iusto laborum, iste, eligendi expedita?</p>
+                        <p>{overview}</p>
                         <br/>
                         <div className="card-rating">
-                            <Rating rateNumber={5}/>
+                            <Rating rateNumber={vote_average}/>
                         </div>
                     </div>
                 </div>
-                <Image path="/images/power.jpg" description="power"/>
+                <Image path={poster_path} description={title}/>
             </div>
         </>
     )
 }
 
 MovieCard.displayName = "Image card"
-export default MovieCard
