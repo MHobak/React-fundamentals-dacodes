@@ -4,11 +4,12 @@ interface ButtonI {
     type?: "button" | "submit" | "reset"
     disabled?: boolean
     children: React.ReactNode
+    onClick?: () => void 
 }
 
-const Button = ({children, type = "button", disabled = false} : ButtonI) => {
+const Button = ({children, type = "button", disabled = false, onClick} : ButtonI) => {
     return (
-        <button disabled={disabled} type={type} className='button'>{children}</button>
+        <button onClick={onClick} disabled={disabled} type={type} className='button'>{children}</button>
     )
 }
 
