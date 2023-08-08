@@ -2,40 +2,15 @@ import InputField from "../../../../components/molecules/InputField/InputField"
 import TermsCheckbox from "../../../../components/molecules/TermsCheckbox/TermsCheckbox"
 import Button from "../../../../components/atoms/Buttons/Button/Button"
 import { useFormik } from "formik"
-import axios from "axios";
 import './LoginFormModule.css'
 
-interface LoginImputsI {
+export interface LogininputsI {
     email: string,
     password: string,
     terms: boolean
 }
 
-const hanleLogin = async () => {
-    const options = {
-      method: "GET",
-      url: "https://api.themoviedb.org/3/authentication/guest_session/new",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4OTExY2U2ZTBjNGUxZjQ4M2E3NDIxMDNjMDJmYjZmOSIsInN1YiI6IjY0MTM3ZDEyYTZjMTA0MDA3OTA3MTM2YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IhXW1F90EvMAP_AMkFrEfMJdyuswuVnBY6_KlyVMkO0",
-      },
-    };
-
-    axios
-    .request(options)
-    .then(function (response) {
-    console.log(response.data);
-    const token = response.data.guest_session_id;
-    sessionStorage.setItem("token", response.data.guest_session_id);
-
-    })
-    .catch(function (error) {
-        console.error(error);
-    });
-};
-
-const validate = (values:LoginImputsI) => {
+const validate = (values:LogininputsI) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const errors = {};
 
@@ -58,15 +33,15 @@ const validate = (values:LoginImputsI) => {
     return errors
 }  
 
-const LoginFormModule = () => {
-    const formik = useFormik<LoginImputsI>({
+export const LoginFormModule = ( {loginMethod }:{loginMethod:(input:LogininputsI) => void}) => {
+    const formik = useFormik<LogininputsI>({
         initialValues: {
             email: '',
             password: '',
             terms: false
         },
         validate,
-        onSubmit: values => hanleLogin()
+        onSubmit: values => loginMethod(values)
     })
 
     return (
@@ -98,4 +73,3 @@ const LoginFormModule = () => {
 }
 
 LoginFormModule.displayName = "Login form module"
-export default LoginFormModule

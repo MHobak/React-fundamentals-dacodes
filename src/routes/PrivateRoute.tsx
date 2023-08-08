@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, Outlet } from 'react-router-dom';
 
 const PrivateRoute = () => {
-  const isAuthenticated = true// insert your authentication checking logic here
+  const isAuthenticated = (sessionStorage.getItem('pelis-token') !== null)
   const navigate = useNavigate();
 
   React.useEffect(() => {
