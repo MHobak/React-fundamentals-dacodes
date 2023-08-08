@@ -4,7 +4,7 @@ import MoviesTemplate from "../../templates/MoviesTemplate/MoviesTemplate"
 import MoviesGallery from "../../components/organisms/MoviesGallery/MoviesGallery"
 import Pagination from "../../components/molecules/Pagination/Pagination"
 import { ButtonBar, MenuActions } from "../../components/molecules/ButtonBar/ButtonBar"
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from "axios"
 import { MovieI } from "../../components/molecules/MovieCard/MovieCard"
 import Loading from "../../components/molecules/Loading/Loading"
@@ -52,7 +52,11 @@ const getDescriptions = (action:MenuActions):PageDescriptionI => {
     return descriptions;
 }
 
-const hanldeMovieRequest = (setData,SetError,setLoading,setPage, page: number, route:string) => {
+const hanldeMovieRequest = (
+    setData:React.Dispatch<React.SetStateAction<ApiResponse | undefined>>,
+    setLoading:React.Dispatch<React.SetStateAction<boolean>>,
+    setPage:React.Dispatch<React.SetStateAction<number>>,
+     page: number, route:string) => {
     setLoading(true);
     const options = {
         headers: {
@@ -75,7 +79,6 @@ const hanldeMovieRequest = (setData,SetError,setLoading,setPage, page: number, r
     })
     .catch(function (error) {
         console.error(error);
-        SetError(error);
         setLoading(false);
     });
 }
@@ -85,7 +88,6 @@ const hanldeMovieRequest = (setData,SetError,setLoading,setPage, page: number, r
 const Movies = () => {
     const [data, setData] = useState<ApiResponse>();
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const [page, setPage] = useState(0);
     const [route, setRoute] = useState(MenuActions.NowPlaying);
     const [descriptions, setDescriptions] = useState(getDescriptions(MenuActions.NowPlaying));
@@ -98,7 +100,7 @@ const Movies = () => {
             } else {
                 pageNum++;
                 setPage(pageNum)
-                hanldeMovieRequest(setData,setError,setLoading,setPage,pageNum, route);
+                hanldeMovieRequest(setData,setLoading,setPage,pageNum, route);
             }
         } else {
             if (pageNum <= 1) {
@@ -106,19 +108,19 @@ const Movies = () => {
             } else {
                 pageNum--;
                 setPage(pageNum)
-                hanldeMovieRequest(setData,setError,setLoading,setPage,pageNum, route);
+                hanldeMovieRequest(setData,setLoading,setPage,pageNum, route);
             }
         }
     }
 
    const handleRoute = (route: MenuActions) => {
         setRoute(route);
-        hanldeMovieRequest(setData,setError,setLoading,setPage,1, route);
+        hanldeMovieRequest(setData,setLoading,setPage,1, route);
         setDescriptions(getDescriptions(route));
    }
 
     useEffect(() => {
-        hanldeMovieRequest(setData,setError,setLoading,setPage,1,route);
+        hanldeMovieRequest(setData,setLoading,setPage,1,route);
       }, []);
 
     if (loading) {

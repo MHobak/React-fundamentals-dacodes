@@ -12,7 +12,7 @@ export interface LogininputsI {
 
 const validate = (values:LogininputsI) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const errors = {};
+    const errors:any = {};
 
     if (!values.email) {
         errors.email = "Proporcione un correo"

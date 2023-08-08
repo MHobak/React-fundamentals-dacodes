@@ -16,10 +16,11 @@ const handleToken = async (input:LogininputsI, navigate: NavigateFunction) => {
       },
     };
 
+    console.error(input);//send
+
     axios
     .request(options)
     .then(function (response) {
-        const token = response.data.guest_session_id;
         sessionStorage.setItem("pelis-token", response.data.guest_session_id);
         navigate("/")
     })
