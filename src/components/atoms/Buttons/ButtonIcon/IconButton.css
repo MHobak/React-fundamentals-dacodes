@@ -16,3 +16,10 @@
 .icon-button:hover {
     opacity: 0.5;
 }
+
+.icon-button:disabled {
+    background-color: #563FF0;
+    background-image: none;
+    opacity: 0.8;
+    cursor: default;
+  }

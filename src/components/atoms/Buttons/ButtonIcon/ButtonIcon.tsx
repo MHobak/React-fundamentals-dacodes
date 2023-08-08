@@ -14,14 +14,14 @@ interface ButtonColorI {
     backgroundColor: string
 }
 
-const IconButton = ({disabled, onClick, children, bgColor = "black", textColor = "white"  } : ButtonIconi) => {
+const IconButton = ({disabled = false, onClick, children, bgColor = "black", textColor = "white"  } : ButtonIconi) => {
     const buttonColor :ButtonColorI = {
         color: textColor,
         backgroundColor: bgColor
     }
 
     return (
-        <button onClick={onClick} style={buttonColor} className='icon-button'>{children}</button>
+        <button disabled={disabled} onClick={onClick} style={buttonColor} className='icon-button'>{children}</button>
     )
 }
 

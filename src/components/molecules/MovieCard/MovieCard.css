@@ -16,7 +16,7 @@
 }
 
 .card-body {
-    background-color: #a200ff61;
+    background-color: #771aadc4;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -40,3 +40,10 @@
     justify-content: center;
     align-items: center;
 }
+
+.description-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+  }

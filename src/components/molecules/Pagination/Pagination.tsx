@@ -12,9 +12,9 @@ const Pagination = ({page, total, onPrevious, onNext} : PaginationI) => {
     return (
         <div className="pagination-container">
             <div className="pagination-bar">
-                <IconButton onClick={onPrevious} bgColor="#5141EA">{"<"}</IconButton>
+                <IconButton disabled={page <= 1} onClick={onPrevious} bgColor="#5141EA">{"<"}</IconButton>
                 <p>{`${page}/${total}`}</p>
-                <IconButton onClick={onNext} bgColor="#5141EA">{">"}</IconButton>
+                <IconButton disabled={page >= total} onClick={onNext} bgColor="#5141EA">{">"}</IconButton>
             </div>
         </div>       
     )

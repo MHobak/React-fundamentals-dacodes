@@ -10,16 +10,16 @@ export interface MovieI {
     release_date: string
 }
 
-export const MovieCard = ({title, overview, poster_path, vote_average}:MovieI) => {
+export const MovieCard = ({title, overview, poster_path, vote_average, release_date}:MovieI) => {
     return (
         <>
             <div className="card">
                 <div className="card-body overlay">
                     <div className="card-info">
                         <b>{title}</b>
-                        <p>{vote_average}</p>
+                        <p>{release_date}</p>
                         <br></br>
-                        <p>{overview}</p>
+                        <p className="description-text">{overview}</p>
                         <br/>
                         <div className="card-rating">
                             <Rating rateNumber={vote_average}/>
