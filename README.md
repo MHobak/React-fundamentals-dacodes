@@ -1,6 +1,10 @@
-# Proyecto react fundamental
+# React Fundamentals DaCodes
 
-Aplicación de peliculas
+Tarea - Aplicación de peliculas en react
 
-Hice lo que pude 😞
+### Link de la app publicada
+
+Hice lo que pude 😞 [link tarea](https://fancy-banoffee-4d5173.netlify.app/).
+
+
 
